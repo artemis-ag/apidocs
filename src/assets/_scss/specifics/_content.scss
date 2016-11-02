@@ -1,0 +1,28 @@
+h1, h2 {
+    &:first-child { margin-top: 0; }
+}
+
+p, pre {
+    margin: 0 0 ($baseSpacing * 1.5);
+}
+
+.content {
+    background-color: color(white);
+    padding: $baseSpacing;
+
+    @include media('>md') {
+        flex: 1 1 70%;
+        padding: $largeSpacing $baseSpacing $largeSpacing $largeSpacing;
+        position: relative;
+
+        &:after {
+            background-color: color(white);
+            bottom: 0;
+            content: '';
+            position: absolute;
+            right: -9999px;
+            top: 0;
+            width: 9999px;
+        }
+    }
+}
