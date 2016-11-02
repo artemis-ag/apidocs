@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  font-family: $sans;
+  line-height: 1.6;
+  font-weight: 400;
+  background: #1b1925;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, button:hover, input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+%clear:before,
+%clear:after {
+    content: " ";
+    display: table;
+}
+
+%clear:after {
+    clear: both;
+}
+
+.wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.width {
+  max-width: 1030px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media (min-width: $mediumbp) {
+  .width {
+    max-width: 1050px;
+    padding: 0 30px;
+  }  
+}

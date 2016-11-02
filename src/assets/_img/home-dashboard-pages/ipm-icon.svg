@@ -1,0 +1,17 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 65 65" enable-background="new 0 0 65 65" xml:space="preserve">
+<g>
+	<path fill="#FFFFFF" d="M32.2,61.6c-13.5,0-24.5-11-24.5-24.5s11-24.5,24.5-24.5s24.5,11,24.5,24.5S45.7,61.6,32.2,61.6z
+		 M32.2,15.6c-11.9,0-21.5,9.6-21.5,21.5s9.6,21.5,21.5,21.5s21.5-9.6,21.5-21.5S44,15.6,32.2,15.6z"/>
+	<rect x="30.7" y="14.1" fill="#FFFFFF" width="3" height="46"/>
+	<rect x="10.2" y="11" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -8.1257 13.0245)" fill="#FFFFFF" width="3" height="10.6"/>
+	<rect x="0.4" y="35.6" fill="#FFFFFF" width="8.8" height="3"/>
+	<rect x="6.5" y="55" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -36.524 24.8365)" fill="#FFFFFF" width="10.4" height="3"/>
+	
+		<rect x="50.9" y="51.3" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -24.6468 53.627)" fill="#FFFFFF" width="3" height="10.6"/>
+	<rect x="54.9" y="35.6" fill="#FFFFFF" width="8.8" height="3"/>
+	
+		<rect x="47.1" y="14.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 3.8354 41.7824)" fill="#FFFFFF" width="10.4" height="3"/>
+	<path fill="#FFFFFF" d="M44.2,15.7h-3c0-5-4-9-9-9s-9,4-9,9h-3c0-6.6,5.4-12,12-12S44.2,9.1,44.2,15.7z"/>
+</g>
+</svg>

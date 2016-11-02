@@ -1,0 +1,68 @@
+.fixed-hero-image {
+  width: 100%;
+  height: 450px;
+  position: fixed;
+  &.home {
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    object-fit: cover;
+  }
+
+  &.desktop { display: none; }
+}
+
+.hero {
+  height: 450px;
+  &.purple-tint {
+    background-color: rgba(71, 52, 150, 0.75);
+  }
+}
+
+.hero-content {
+  padding-top: 170px;
+  h2 {
+    font-size: 32px;
+    font-weight: 300;
+    color: white;
+  }
+}
+
+@media (min-width: $smallbp) {
+  .fixed-hero-image, .hero {
+    height: 550px;
+  }
+  .hero-content {
+    padding-top: 210px;
+    h2 {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (min-width: $mediumbp) {
+  .fixed-hero-image, .hero {
+    height: 650px;
+  }
+  .hero-content {
+    padding-top: 240px;
+    h2 {
+      font-size: 55px;
+    }
+  }
+}
+
+@media (min-width: $largebp) {
+  .fixed-hero-image, .hero {
+    height: 775px;
+
+    &.mobile { display: none; }
+    &.desktop { display: block; }
+  }
+  .hero-content {
+    padding-top: 300px;
+    h2 {
+      font-size: 70px;
+    }
+  }
+}

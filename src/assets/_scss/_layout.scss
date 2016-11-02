@@ -1,0 +1,60 @@
+.inner {
+    margin: 0 auto;
+    max-width: 1030px;
+    padding: 0 $baseSpacing;
+}
+
+.section {
+    padding: 115px 0;
+    text-align: center;
+    @include clearfix;
+
+    @include media('>lg') {
+        text-align: left;
+    }
+
+    &.section--green {
+        background-color: color(green);
+
+        p { color: color(white); }
+    }
+
+    &.section--purple {
+        background-color: color(purple);
+
+        p { color: color(white); }
+    }
+
+    p {
+        color: color(black);
+        font-size: 21px;
+        font-weight: 300;
+        line-height: 1.6;
+
+        @include media('>lg') {
+            font-size: 25px;
+        }
+    }
+}
+
+.column--center {
+    margin: 0 auto;
+    max-width: 560px;
+    text-align: left;
+    width: 100%;
+}
+
+@include media('>lg') {
+    .column--wide {
+        width: 60%;
+    }
+    .column--narrow {
+        width: 40%;
+    }
+    .column--left {
+        float: left;
+    }
+    .column--right {
+        float: right;
+    }
+}

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agrilyst</title>
+  <meta name="description" content="Agrilyst is the intelligence platform for indoor farms.">
+  <link rel="stylesheet" href="./assets/css/app.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="./assets/js/jquery-form.min.js"></script>
+
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;"/>
+  <meta name="msapplication-TileColor" content="#F9F9FA" />
+  <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="inner">
+
+      <a href="http://agrilyst.com" class="header__logo">Agrilyst</a>
+
+      <a href="#" class="menu-toggle js-toggle-menu">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </a>
+
+      <nav class="nav">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="#">Item 1</a></li>
+          <li class="nav__item"><a href="#">Item 2</a></li>
+          <li class="nav__item"><a href="https://medium.com/agrilyst" target="_blank">Blog</a></li>
+          <li class="nav__item"><a href="#">Contact</a></li>
+          <li class="nav__item nav__item--cta">
+            <a href="https://portal.agrilyst.com" target="_blank">Log In</a>
+            <span>or</span>
+            <a href="#schedule-a-demo">Get Started</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="section">
+  </section>
+
+  <section class="section section--green">
+    <div class="inner">
+      <div class="column--narrow column--right">
+      </div>
+      <div class="column--wide column--left">
+        <p>We are a group of growers, data scientists, designers, and engineers who believe that data can unlock higher profits for your farm. We love to build simple and powerful tools.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="inner">
+      <div class="column--narrow column--left">
+      </div>
+      <div class="column--wide column--right">
+        <p>Our seed-to-sale tools are built specifically for indoor growers.</p>
+        <p>From tracking crops through production to managing upcoming harvests, to understanding pest patterns better, Agrilyst is at your fingertips to help you get back to what you do best, growing great crops.</p>
+        <a href="mailto:a%6Bo%70f%40a%67rilys%74.%63%6Fm" class="btn">Schedule a Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--purple">
+    <div class="inner">
+      <p>Whether you’re a large commercial greenhouse operator or are building a vertical farm in your garage, there’s a platform for you. Our software scales with you, and you can choose the features that you want.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="inner">
+      <div class="column--center">
+        <h2 class="contact-heading">Contact Us</h2>
+        
+        <ul class="contact-messages" id="contact-messages">
+        </ul>
+
+        <form target="_self" method="post" action="/cgi-bin/contact" name="contact-form" id="contact-form">
+          <label class="form-group form-group--half">
+            <span class="form-label">Name</span>
+            <input type="name" id="name" class="input-text" name="name" placeholder="Name" tabindex="1">
+          </label>
+
+          <label class="form-group form-group--half">
+            <span class="form-label">Email Address</span>
+            <input type="email" id="email" class="input-text" name="email" placeholder="name@farm.org" tabindex="2">
+          </label>
+
+          <label class="form-group">
+            <span class="form-label">Message</span>
+            <textarea id="message" name="message" class="input-text" placeholder="Ask us any questions you have." tabindex="3"></textarea>
+          </label>
+
+          <label class="form-group form-group--checkbox">
+            <input type="checkbox" id="try_demo" name="try_demo" class="checkbox" tabindex="4">
+            <span class="checkbox-label">Try Agrilyst now</span>
+          </label>
+
+          <label class="form-group form-group--checkbox">
+            <input type="checkbox" id="email_list" name="email_list" class="checkbox" tabindex="5">
+            <span class="checkbox-label">Sign me up for the email list</span>
+          </label>
+
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="inner">
+
+      <div class="footer__section">
+        <ul class="footer__menu">
+          <li class="footer__menu--item"><a href="https://portal.agrilyst.com/pages/privacy_policy">Privacy Policy</a></li>
+          <li class="footer__menu--item"><a href="https://portal.agrilyst.com/pages/terms">Terms of Use</a></li>
+          <li class="footer__menu--item"><a href="https://portal.agrilyst.com/">Login</a></li>
+        </ul>
+
+        <img src="./assets/img/agrilyst-logo.png" alt="agrilyst" class="footer__logo">
+      </div>
+
+      <div class="footer__section">
+        <div class="footer__box">
+          <h3>Agrilyst Inc.</h3>
+          <address>25 Broadway, 5th Floor<br>
+            New York, NY 10004</address>
+        </div>
+
+
+        <div class="footer__box">
+          <h3>Call Us</h3>
+          <a href="tel:646-719-0304">646-719-0304</a>
+        </div>
+
+        <div class="footer__box">
+          <h3>Email Us</h3>
+          <a href='mai&#108;to&#58;i&#110;&#102;o&#64;&#97;gril&#37;79&#115;t&#46;%63&#111;%6D'>info&#64;a&#103;r&#105;lyst&#46;com</a>
+        </div>
+
+        <div class="footer__box footer__box--social">
+          <h3>Follow Us</h3>
+          <ul class="footer__social-menu">
+            <li class="footer__social-menu--item"><a href="http://facebook.com/agrilyst"><img src="./assets/img/facebook.png" alt="facebook"></a></li>
+            <li class="footer__social-menu--item"><a href="http://twitter.com/agrilyst"><img src="./assets/img/twitter.png" alt="twitter"></a></li>
+            <li class="footer__social-menu--item"><a href="http://instagram.com/agrilyst"><img src="./assets/img/instagram.png" alt="instagram"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="./assets/js/scripts.min.js"></script>
+  
+<!--   <div class="fixed-hero-image home mobile"></div>
+  <video playsinline autoplay muted loop poster="./assets/img/hero-bg.jpg" id="bgvid" class="fixed-hero-image home desktop">
+      <source src="./assets/img/hero.mp4" type="video/mp4">
+  </video> -->
+
+  <!-- <div class="wrap">
+
+
+    <div class="hero home purple-tint">
+      <div class="width">
+
+        <div class="hero-content">
+          <h2>Your plants are talking.<br>
+          We’re here to listen.</h2>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="home-learn-green">
+      <div class="width">
+
+        <div class="home-learn-green-right">
+          <div class="checkbox">
+            <img src="./assets/img/home-graph/checkbox.png" alt="checkbox">
+          </div>
+
+          <div class="pl">
+            <img src="./assets/img/home-graph/pl.png" alt="p&l">
+          </div>
+
+          <div class="six">
+            <img src="./assets/img/home-graph/6rise.png" alt="rise">
+          </div>
+
+          <div class="bar-chart-wrap">
+            <div class="bar-chart">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="home-learn-green-left">
+          <p>We are a group of growers, data scientists, designers, and engineers who believe that data can unlock higher profits for your farm. We love to build simple and powerful tools.</p>
+
+          <a href="#" class="button green">Learn more about Agrilyst</a>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="home-learn-white">
+      <div class="width">
+
+        <div class="home-learn-white-left">
+          <div class="crops">
+            <div class="crop arugula">
+              <img src="./assets/img/home-crops/arugula.png" alt="arugula">
+            </div>
+            <div class="crop tomato">
+              <img src="./assets/img/home-crops/tomato.png" alt="tomato">
+            </div>
+            <div class="crop basil">
+              <img src="./assets/img/home-crops/basil.png" alt="basil">
+            </div>
+          </div>
+        </div>
+
+        <div class="home-learn-white-right">
+          <p class="first-p">Our seed-to-sale tools are built specifically for indoor growers.</p>
+          <p class="second-p">From tracking crops through production to managing upcoming harvests, to understanding pest patterns better, Agrilyst is at your fingertips to help you get back to what you do best, growing great crops.</p>
+          <a href="#" class="button green">Learn more about our products</a>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="home-create" id="schedule-a-demo">
+      <div class="width">
+
+        <ul class="dashboard-pages">
+          <li>
+              <img src="./assets/img/home-dashboard-pages/dashboard-icon.svg" alt="crops icon">
+              <span>Dashboard</span>
+          </li>
+          <li>
+              <img src="./assets/img/home-dashboard-pages/tasks-icon.svg" alt="crops icon">
+              <span>Tasks</span>
+          </li>
+          <li>
+              <img src="./assets/img/home-dashboard-pages/nutrients-icon.svg" alt="crops icon">
+              <span>Nutrients</span>
+          </li>
+          <li>
+              <img src="./assets/img/home-dashboard-pages/crops-icon.svg" alt="crops icon">
+              <span>Crops</span>
+          </li>
+        </ul>
+
+        <p>Whether you’re a large commercial greenhouse operator or are building a vertical farm in your garage, there’s a platform for you. Our software scales with you, and you can choose the features that you want.</p>
+
+        <a href="mailto:a%6Bo%70f%40a%67rilys%74.%63%6Fm" class="button purple x-pad">Schedule a Demo</a>
+
+      </div>
+    </div> -->
+<!-- Contact -->
+<!--     <div id="contact">
+        <div class="width">
+
+          <h2 class="contact-heading">Contact Us</h2>
+
+          
+          <ul class="contact-messages" id="contact-messages">
+          </ul>
+          
+
+          <form target="_self" method="post" action="/cgi-bin/contact" name="contact-form" id="contact-form">
+            <label class="form-group form-group--half">
+              <span class="form-label">Name</span>
+              <input type="name" id="name" class="input-text" name="name" placeholder="Name" tabindex="1">
+            </label>
+
+            <label class="form-group form-group--half">
+              <span class="form-label">Email Address</span>
+              <input type="email" id="email" class="input-text" name="email" placeholder="name@farm.org" tabindex="2">
+            </label>
+
+            <label class="form-group">
+              <span class="form-label">Message</span>
+              <textarea id="message" name="message" class="input-text" placeholder="Ask us any questions you have." tabindex="3"></textarea>
+            </label>
+
+            <label class="form-group form-group--checkbox">
+              <input type="checkbox" id="try_demo" name="try_demo" class="checkbox" tabindex="4">
+              <span class="checkbox-label">Try Agrilyst now</span>
+            </label>
+
+            <label class="form-group form-group--checkbox">
+              <input type="checkbox" id="email_list" name="email_list" class="checkbox" tabindex="5">
+              <span class="checkbox-label">Sign me up for the email list</span>
+            </label>
+
+            <button class="button green" type="submit">Submit</button>
+          </form>
+        </div>
+    </div>
+
+
+    <div class="footer-top">
+      <div class="width">
+
+        <ul>
+          <li><a href="https://portal.agrilyst.com/pages/privacy_policy">Privacy Policy</a></li>
+          <li><a href="https://portal.agrilyst.com/pages/terms">Terms of Use</a></li>
+          <li><a href="https://portal.agrilyst.com/">Login</a></li>
+        </ul>
+
+
+        <img src="./assets/img/agrilyst-logo.png" alt="agrilyst">
+
+      </div>
+    </div>
+
+
+    <div class="footer">
+      <div class="width">
+
+        <div class="footer-box">
+          <h3>Agrilyst Inc.</h3>
+          <address>25 Broadway, 5th Floor<br>
+            New York, NY 10004</address>
+        </div>
+
+
+        <div class="footer-box">
+          <h3>Call Us</h3>
+          <a href="tel:646-719-0304">646-719-0304</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Email Us</h3>
+          <a href='mai&#108;to&#58;i&#110;&#102;o&#64;&#97;gril&#37;79&#115;t&#46;%63&#111;%6D'>info&#64;a&#103;r&#105;lyst&#46;com</a>
+        </div>
+
+        <div class="footer-box social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="http://facebook.com/agrilyst"><img src="./assets/img/facebook.png" alt="facebook"></a></li>
+            <li><a href="http://twitter.com/agrilyst"><img src="./assets/img/twitter.png" alt="twitter"></a></li>
+            <li><a href="http://instagram.com/agrilyst"><img src="./assets/img/instagram.png" alt="instagram"></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+   -->
+</body>
+</html>

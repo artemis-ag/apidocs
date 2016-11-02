@@ -1,0 +1,23 @@
+.btn {
+    background-color: color(green);
+    border-radius: 4px;
+    color: color(white);
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0 0 20px;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: all .075s ease-out;
+
+    &:hover,
+    &:focus {
+        background-color: darken(color(green), 5%);
+    }
+    &:focus { outline: none; }
+}
+
+#{$all-buttons} {
+    border: none;
+}

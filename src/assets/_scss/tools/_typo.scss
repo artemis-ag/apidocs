@@ -1,0 +1,23 @@
+%typeRhythm {
+    margin: 0;
+    padding: 0;
+    margin-bottom: ceil($baseFontSize * $baseLineHeight) * 1px;
+    margin-bottom: $baseLineHeight + rem;
+}
+
+@mixin fontSize($font-size, $line-height: true) {
+    $pixelLineHeight: ($baseLineHeight * $baseFontSize);
+    font-size: $font-size;
+    font-size: ($font-size / $baseFontSize) * 1rem;
+
+    @if $line-height == true {
+        line-height: ceil($font-size / $pixelLineHeight) * ($pixelLineHeight / $font-size);
+    }
+
+}
+
+@mixin hideText() {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}

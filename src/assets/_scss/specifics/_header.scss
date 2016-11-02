@@ -1,0 +1,179 @@
+.header {
+    background-color: color(purple);
+    padding: $baseSpacing 0 0;
+    @include clearfix;
+}
+
+.header__logo {
+    background-image: url('../img/agrilyst-logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 95px 36px;
+    float: left;
+    height: 36px;
+    margin-bottom: $baseSpacing;
+    width: 95px;
+    @include hideText;
+}
+
+.menu-toggle { display: none; }
+
+.nav__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__item {
+    a {
+        color: color(white);
+        display: block;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.nav__item--cta {
+    padding: 0 $baseSpacing;
+
+    a {
+        float: left;
+    }
+    span {
+        color: color(purple, light);
+        cursor: default;
+        float: left;
+        padding: $smallSpacing;
+    }
+}
+
+// MOBILE SIZES
+    @include media('<=md') {
+        .menu-toggle {
+            display: none;
+            float: right;
+            height: 17px;
+            margin: 9.5px 0;
+            position: relative;
+            width: 22px;
+
+            .has-js & { display: block; }
+
+            .menu-toggle__bar {
+                background-color: color(white);
+                border-radius: 1px;
+                display: block;
+                height: 3px;
+                width: 22px;
+                transition: all .125s ease-out;
+                transform-origin: 21px;
+
+                & + .menu-toggle__bar {
+                    margin-top: 4px;
+                }
+            }
+
+            &.is-active {
+                .menu-toggle__bar {
+                  transform: rotate(0deg);
+                }
+                .menu-toggle__bar:nth-child(1) {
+                  transform: rotate(-45deg);
+                }
+                .menu-toggle__bar:nth-child(2) {
+                  opacity: 0;
+                }
+                .menu-toggle__bar:nth-child(3) {
+                  transform: rotate(45deg);
+                }
+            }
+        }
+
+        .nav {
+            background: color(purple);
+            display: inline-block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 68px;
+            width: 100%;
+
+            .has-js & {
+                opacity: 0;
+                transition: opacity .25s;
+                transform: translateY(-9999px);
+            }
+
+            &.is-active {
+                opacity: 1;
+                transform: translateY(0);
+
+                .nav__item {
+                    opacity: 1;
+                    transition: opacity .025s;
+
+                    $delay: .05s;
+                    @for $i from 0 through 7 {
+                        &:nth-child(#{$i}) {
+                            transition-delay: #{$delay * $i};
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav__items {
+            border-top: 1px solid darken(color(purple), 4%);
+        }
+
+        .nav__item {
+            &:not(:last-child) { border-bottom: 1px solid darken(color(purple), 4%); }
+
+            a { padding: $smallSpacing $baseSpacing; }
+
+            .has-js & { opacity: 0; }
+        }
+
+        .nav__item--cta {
+            a {
+                padding: $smallSpacing 0;
+            }
+        }
+    }
+
+
+// LARGER SIZES
+    @include media('>md') {
+        .nav {
+            float: right;
+            width: auto;
+        }
+
+        .nav__item {
+            border-bottom: 0;
+            float: left;
+            margin-left: $largeSpacing;
+            opacity: 1;
+
+            a { padding: 6px 0; }
+        }
+
+        .nav__item--cta {
+            padding: 0;
+
+            span { padding: 6px $smallSpacing; }
+        }
+    }
+
+
+// LARGEST SIZES
+    @include media('>lg') {
+        .nav__item {
+            margin-left: ($largeSpacing * 1.5);
+        }
+    }

@@ -1,0 +1,133 @@
+.footer {
+    background-color: color(purple, darkest);
+    text-align: center;
+    @include clearfix;
+}
+
+.footer__section {
+    padding: $giantSpacing 0;
+    @include clearfix;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid lighten(color(purple, darkest), 5%);
+    }
+}
+
+.footer__menu {
+    list-style: none;
+    margin: 0 0 $largeSpacing;
+    padding: 0;
+}
+.footer__menu--item {
+    &:not(:last-child) { margin-bottom: $tinySpacing; }
+
+    a {
+        color: color(gray, light);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 36px;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: color(white);
+        }
+    }
+}
+
+.footer__logo {
+    display: block;
+    margin: 0 auto;
+    width: 94px;
+}
+
+.footer__box {
+    &:not(:last-child) {
+        margin-bottom: $largeSpacing;
+    }
+    
+    h3 {
+        color: color(purple, lightest);
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: $smallSpacing;
+    }
+
+    p, a, address {
+        color: color(gray, light);
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+    }
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: color(white);
+        }
+    }
+}
+
+.footer__social-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer__social-menu--item {
+    display: inline;
+    margin: 0 $smallSpacing;
+
+    &:first-child { margin-left: 0; }
+    &:last-child { margin-right: 0; }
+
+    img {
+        vertical-align: middle;
+        width: 24px;
+    }
+
+    a {
+        opacity: .75;
+
+        &:hover,
+        &:focus { opacity: 1; }
+    }
+}
+
+@include media('>md') {
+    .footer { text-align: left; }
+
+    .footer__menu {
+        float: right;
+        margin: 0;
+    }
+    .footer__menu--item {
+        display: inline;
+        margin-left: $baseSpacing;
+    }
+
+    .footer__logo { float: left;}
+
+    .footer__box {
+        float: left;
+        margin-right: $giantSpacing;
+    }
+    .footer__box--social {
+        float: right;
+        margin-right: 0;
+    }
+}
+
+@include media('>lg') {
+    .footer__box {
+        margin-right: 100px;
+
+        h3 { font-size: 13px; }
+        p, a, address {
+            font-size: 16px;
+        }
+    }
+    .footer__box--social { margin-right: 0; }
+}
