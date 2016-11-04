@@ -6,13 +6,36 @@ p, pre {
     margin: 0 0 ($baseSpacing * 1.5);
 }
 
+h2 a {
+    color: color(black);
+    position: relative;
+    text-decoration: none;
+
+    &:before {
+        color: color(purple, light);
+        content: '#';
+        font-weight: 500;
+        left: -1em;
+        opacity: .5;
+        position: absolute;
+        top: -2px;
+        transition: opacity .075s ease;
+    }
+
+    &:focus { outline: none; }
+    &:hover,
+    &:focus {
+        &:before { opacity: 1; }
+    }
+}
+
 .content {
     background-color: color(white);
-    padding: $baseSpacing;
+    padding: $baseSpacing $baseSpacing $baseSpacing $largeSpacing;
 
     @include media('>md') {
         flex: 1 1 70%;
-        padding: $largeSpacing $baseSpacing $largeSpacing $largeSpacing;
+        padding: $largeSpacing $baseSpacing $largeSpacing $giantSpacing;
         position: relative;
 
         &:after {

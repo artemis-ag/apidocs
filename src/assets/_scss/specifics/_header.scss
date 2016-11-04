@@ -1,6 +1,6 @@
 .header {
     background-color: color(purple, dark);
-    padding: $baseSpacing 0 0;
+    padding: $baseSpacing 0;
     @include clearfix;
 }
 
@@ -11,7 +11,7 @@
     background-size: 95px 36px;
     float: left;
     height: 36px;
-    margin-bottom: $baseSpacing;
+    margin-top: -1px;
     width: 95px;
     @include hideText;
 }
@@ -23,11 +23,17 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 1;
-    margin-top: 16px;
+    margin-top: 11px;
     margin-left: $baseSpacing;
+    margin-bottom: 0;
+
+    .lg { display: none ;}
 
     @include media('>sm') {
         font-size: 22px;
         margin-top: 8px;
+
+        .lg { display: inline-block; }
+        .sm { display: none; }
     }
 }

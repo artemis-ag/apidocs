@@ -34,50 +34,78 @@
   <header class="header">
     <div class="inner">
       <a href="http://agrilyst.com" class="header__logo">Agrilyst</a>
-      <span class="header__title">API Documentation</span>
+
+      <a href="#" class="nav-toggle js-menu-toggle">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </a>
+
+      <h1 class="header__title">
+        <span class="lg">API Documentation</span>
+        <span class="sm">API Docs</span>
+      </h1>
     </div>
   </header>
 
   <div class="container">
     <nav class="nav">
-      <h3 class="nav__heading">Heading</h3>
-      <ul class="nav-menu">
-        <li class="nav-menu__item is-current"><a href="#introduction" class="nav-menu__link">Introduction</a></li>
-        <li class="nav-menu__item"><a href="#anotherSection" class="nav-menu__link">Another Section</a></li>
-        <li class="nav-menu__item"><a href="#sectionThree" class="nav-menu__link">Section Three</a></li>
-        <li class="nav-menu__item"><a href="#sectionFour" class="nav-menu__link">Section Four</a></li>
-        <li class="nav-menu__item"><a href="#sectionFive" class="nav-menu__link">Section Five</a></li>
-        <li class="nav-menu__item"><a href="#sectionSix" class="nav-menu__link">Section Six</a></li>
-      </ul>
-
-      <h3 class="nav__heading">Heading</h3>
-      <ul class="nav-menu">
-        <li class="nav-menu__item"><a href="#introduction" class="nav-menu__link">Introduction</a></li>
-        <li class="nav-menu__item"><a href="#anotherSection" class="nav-menu__link">Another Section</a></li>
-        <li class="nav-menu__item"><a href="#sectionThree" class="nav-menu__link">Section Three</a></li>
-        <li class="nav-menu__item"><a href="#sectionFour" class="nav-menu__link">Section Four</a></li>
-        <li class="nav-menu__item"><a href="#sectionFive" class="nav-menu__link">Section Five</a></li>
-        <li class="nav-menu__item"><a href="#sectionSix" class="nav-menu__link">Section Six</a></li>
-      </ul>
+      <div class="nav__content">
+        <h3 class="nav__heading">Heading</h3>
+        <ul class="nav-menu">
+          <li class="nav-menu__item is-current"><a href="#introduction" class="nav-menu__link">Introduction</a></li>
+          <li class="nav-menu__item"><a href="#anotherSection" class="nav-menu__link">Another Section</a></li>
+          <li class="nav-menu__item"><a href="#sectionThree" class="nav-menu__link">Section Three</a></li>
+          <li class="nav-menu__item"><a href="#sectionFour" class="nav-menu__link">Section Four</a></li>
+          <li class="nav-menu__item"><a href="#sectionFive" class="nav-menu__link">Section Five</a></li>
+          <li class="nav-menu__item"><a href="#sectionSix" class="nav-menu__link">Section Six</a></li>
+        </ul>
+      </div>
     </nav>
     <main class="content">
 
-      <h1 id="introduction">Introduction</h1>
+      <h2><a href="#introduction" id="introduction">Introduction</a></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <h1 id="anotherSection">Another Section</h1>
+      <h2><a href="#anotherSection" id="anotherSection">Another Section</a></h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <pre><code>
+  {
+    "name": "agrilyst-api-docs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "Gruntfile.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "gulp": "^3.9.1",
+      "gulp-autoprefixer": "^3.1.0",
+      "gulp-combine-mq": "^0.4.0",
+      "gulp-copy": "0.0.2",
+      "gulp-imagemin": "^2.4.0",
+      "gulp-livereload": "^3.8.1",
+      "gulp-rename": "^1.2.2",
+      "gulp-sass": "^2.1.1",
+      "gulp-uglify": "^1.5.2",
+      "imagemin-pngquant": "^4.2.0",
+      "browser-sync": "^2.12.8"
+    }
+  }
+      </code></pre>
+
+      <h2><a href="#sectionThree" id="sectionThree">Section Three</a></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <h1 id="sectionThree">Section Three</h1>
+      <h2><a href="#sectionFour" id="sectionFour">Section Four</a></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <h1 id="sectionFour">Section Four</h1>
+      <h2><a href="#sectionFive" id="sectionFive">Section Five</a></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <h1 id="sectionFive">Section Five</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <h1 id="sectionSix">Section Six</h1>
+      <h2><a href="#sectionSix" id="sectionSix">Section Six</a></h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     </main>
@@ -127,6 +155,7 @@
     </div>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="./assets/js/scripts.min.js"></script>
 </body>
 </html>
