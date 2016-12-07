@@ -59,9 +59,8 @@
           <li class="nav-menu__item"><a href="#health" class="nav-menu__link">Health Check</a></li>
           <li class="nav-menu__item"><a href="#version" class="nav-menu__link">Version</a></li>
           <li class="nav-menu__item"><a href="#listsensors" class="nav-menu__link">List Sensors</a></li>
-          <li class="nav-menu__item"><a href="#sectionFour" class="nav-menu__link">List Metrics</a></li>
-          <li class="nav-menu__item"><a href="#sectionFive" class="nav-menu__link">Save Metrics</a></li>
-          <li class="nav-menu__item"><a href="#sectionSix" class="nav-menu__link">Section Six</a></li>
+          <li class="nav-menu__item"><a href="#listmetrics" class="nav-menu__link">List Metrics</a></li>
+          <li class="nav-menu__item"><a href="#savemetrics" class="nav-menu__link">Save Metrics</a></li>
         </ul>
       </div>
     </nav>
@@ -84,34 +83,34 @@ Note: API Tokens have been shortened for the purposes of this documentation. You
 
 
       <pre><code>
-curl -u example@agrilyst.com:75AFDB82 https://portal.agrilyst.com/api/v1/
+  curl -u example@agrilyst.com:75AFDB82 https://api.agrilyst.com/api/v1/
       </code></pre>
 
 <h3>URL Encoding</h3>
 To use URL encoding, use the following format:
 
       <pre><code>
-https://user:token@portal.agrilyst.com/api/v1/
+  https://user:token@api.agrilyst.com/api/v1/
       </code></pre>
 
 <br>Because the `user` value is an email address, it has to be escaped in order to form a valid URL. The `@` sign is represented by the `%40` entity. For example:
 
 
       <pre><code>
-curl https://example%40agrilyst.com:75AFDB82@portal.agrilyst.com/api/v1/
+  curl https://example%40agrilyst.com:75AFDB82@api.agrilyst.com/api/v1/
       </code></pre>
 
 <br>Note: cURL automatically converts the `@` to a `%40` if you use the `-u` option, but not if you put authentication in the URL directly.
 
         
 
-      <h2><a href="#health" id="health">Health Check</a></h2>
+      <h2><a href="#health" id="health">/health - Health Check</a></h2>
       <p>This check is the only API check that does not require authentication.  The health check endpoint returns a 200 OK if the API is up and working. Any other status indicates a failure in the API.</p>
       <h3>Command :</h3>
       <pre><code>
   curl \
-  -u jcamp@agrilyst.com:d08a0a165aed0085e102425f255c3f12d08a0a1 \
-  https://portal.agrilyst.com/api/v1/health
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v1/health
       </code></pre>
 
     <h3>Successful Return:</h3>
@@ -123,13 +122,13 @@ curl https://example%40agrilyst.com:75AFDB82@portal.agrilyst.com/api/v1/
   <h3>Failed Return:</h3>
   Status Code(s): Timeout, Any 4xx or 5xx status code
 
-      <h2><a href="#version" id="version">Version</a></h2>
+      <h2><a href="#version" id="version">/version - Version</a></h2>
       <p>This check returns the API version. This is useful if you are using the /api/current path. The version endpoint returns a 200 OK and the version number.</p>
       <h3>Command :</h3>
       <pre><code>
   curl \
-  -u jcamp@agrilyst.com:d08a0a165aed0085e102425f255c3f12d08a0a1 \
-  https://portal.agrilyst.com/api/v1/version
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v1/version
       </code></pre>
 
     <h3>Successful Return:</h3>
@@ -141,13 +140,13 @@ curl https://example%40agrilyst.com:75AFDB82@portal.agrilyst.com/api/v1/
   <h3>Failed Return:</h3>
   Status Code(s): Timeout, Any 4xx or 5xx status code
 
-      <h2><a href="#listsensors" id="sectionThree">List Sensors</a></h2>
-      <p>This endpoint displays all available sensors. It returns an JSON hash of ID: SENSORNAME pairs</p>
+      <h2><a href="#listsensors" id="listsensors">/sensors - List Sensors</a></h2>
+      <p>This endpoint displays all available sensors. It returns a JSON hash of ID: SENSORNAME pairs</p>
 
       <pre><code>
   curl \
-  -u jcamp@agrilyst.com:d08a0a165aed0085e102425f255c3f12d08a0a1 \
-  https://portal.agrilyst.com/api/v1/sensors
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v1/sensors
       </code></pre>
 
     <h3>Successful Return:</h3>
@@ -161,14 +160,43 @@ curl https://example%40agrilyst.com:75AFDB82@portal.agrilyst.com/api/v1/
 
 
 
-      <h2><a href="#sectionFour" id="sectionFour">Section Four</a></h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2><a href="#listmetrics" id="listmetrics">/metrics - List Metrics</a></h2>
+      <p>This endpoint displays all available metrics for a sensor. You must specify a sensor ID in the request. It returns a JSON hash of ID: METRICNAME pairs</p>
 
-      <h2><a href="#sectionFive" id="sectionFive">Section Five</a></h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v1/metrics/1
+      </code></pre>
 
-      <h2><a href="#sectionSix" id="sectionSix">Section Six</a></h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h3>Successful Return:</h3>
+      <pre><code>
+{"1": "Metric 1", "2": "Metric 2", "3": "Metric 3"}
+      </code></pre>
+  Status Code(s): 200
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+      <h2><a href="#savemetrics" id="savemetrics">Save Metrics</a></h2>
+      <p>This endpoint accepts a POST method and saves a metrics for a sensor. It expects three values: a metric ID, a timestamp, and a metric value. It returns a 201 Created if the metric is saved successfully.</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    -X POST \
+    -d metric_id=1 \
+    -d metric_value=50 \
+    -d metric_time=1471979056 \
+    https://api.agrilyst.com/api/v1/metrics
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+  Status Code(s): 201
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
   <br><br><br><br><br>
 
     </main>

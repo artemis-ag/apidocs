@@ -29,6 +29,8 @@ h2 a {
     }
 }
 
+h3 { margin-bottom: $smallSpacing; }
+
 .content {
     background-color: color(white);
     padding: $baseSpacing $baseSpacing $baseSpacing $largeSpacing;
