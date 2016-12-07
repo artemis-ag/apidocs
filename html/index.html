@@ -104,7 +104,7 @@ To use URL encoding, use the following format:
 
         
 
-      <h2><a href="#health" id="health">/health - Health Check</a></h2>
+      <h2><a href="#health" id="health">GET /health - Health Check</a></h2>
       <p>This check is the only API check that does not require authentication.  The health check endpoint returns a 200 OK if the API is up and working. Any other status indicates a failure in the API.</p>
       <h3>Command :</h3>
       <pre><code>
@@ -122,7 +122,7 @@ To use URL encoding, use the following format:
   <h3>Failed Return:</h3>
   Status Code(s): Timeout, Any 4xx or 5xx status code
 
-      <h2><a href="#version" id="version">/version - Version</a></h2>
+      <h2><a href="#version" id="version">GET /version - Version</a></h2>
       <p>This check returns the API version. This is useful if you are using the /api/current path. The version endpoint returns a 200 OK and the version number.</p>
       <h3>Command :</h3>
       <pre><code>
@@ -140,7 +140,7 @@ To use URL encoding, use the following format:
   <h3>Failed Return:</h3>
   Status Code(s): Timeout, Any 4xx or 5xx status code
 
-      <h2><a href="#listsensors" id="listsensors">/sensors - List Sensors</a></h2>
+      <h2><a href="#listsensors" id="listsensors">GET /sensors - List Sensors</a></h2>
       <p>This endpoint displays all available sensors. It returns a JSON hash of ID: SENSORNAME pairs</p>
 
       <pre><code>
@@ -160,7 +160,7 @@ To use URL encoding, use the following format:
 
 
 
-      <h2><a href="#listmetrics" id="listmetrics">/metrics - List Metrics</a></h2>
+      <h2><a href="#listmetrics" id="listmetrics">GET /metrics - List Metrics</a></h2>
       <p>This endpoint displays all available metrics for a sensor. You must specify a sensor ID in the request. It returns a JSON hash of ID: METRICNAME pairs</p>
 
       <pre><code>
@@ -178,7 +178,7 @@ To use URL encoding, use the following format:
   <h3>Failed Return:</h3>
   Status Code(s): Timeout, Any 4xx or 5xx status code
 
-      <h2><a href="#savemetrics" id="savemetrics">Save Metrics</a></h2>
+      <h2><a href="#savemetrics" id="savemetrics">POST /metrics - Save Metrics</a></h2>
       <p>This endpoint accepts a POST method and saves a metrics for a sensor. It expects three values: a metric ID, a timestamp, and a metric value. It returns a 201 Created if the metric is saved successfully.</p>
 
       <pre><code>
