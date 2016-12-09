@@ -185,9 +185,9 @@ To use URL encoding, use the following format:
   curl \
     -u example@agrilyst.com:75AFDB82 \
     -X POST \
-    -d metric_id=1 \
-    -d metric_value=50 \
-    -d metric_time=1471979056 \
+    -d metric[id]=1 \
+    -d metric[value]=50 \
+    -d metric[time]=1471979056 \
     https://api.agrilyst.com/api/v1/metrics
       </code></pre>
 
