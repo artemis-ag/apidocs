@@ -33,6 +33,7 @@ h3 { margin-bottom: $smallSpacing; }
 
 .content {
     background-color: color(white);
+    min-height: 80vh;
     padding: $baseSpacing $baseSpacing $baseSpacing $largeSpacing;
 
     @include media('>md') {
