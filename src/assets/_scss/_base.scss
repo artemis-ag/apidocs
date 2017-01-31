@@ -18,3 +18,12 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+
+a {
+  color: color(purple);
+
+  &:hover,
+  &:focus {
+    color: lighten(color(purple), 20%);
+  }
+}

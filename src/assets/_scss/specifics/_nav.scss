@@ -94,8 +94,7 @@
     width: 100%;
 
     @include media('>md') {
-        border-top: 1px #eee solid;
-        border-bottom: 0;
+        border: 0;
     }
 }
 .nav-menu__item {
@@ -140,6 +139,7 @@
     &:hover,
     &:focus {
         background-color: lighten(color(purple), 3%);
+        color: color(white);
     }
 
     @include media('>md') {
@@ -149,7 +149,28 @@
         &:hover,
         &:focus {
             background-color: transparent;
+            color: color(purple);
             text-decoration: underline;
+        }
+    }
+}
+
+.nav-menu__subheading {
+    border-bottom: 1px darken(color(purple), 5%) solid;
+    border-top: 1px lighten(color(purple), 5%) solid;
+    color: color(purple, light);
+    font-size: 12px;
+    font-weight: 500;
+    padding: $baseSpacing $baseSpacing $smallSpacing;
+    text-transform: uppercase;
+
+    @include media('>md') {
+        border: 0;
+        color: color(gray);
+        padding: $largeSpacing 0 $smallSpacing;
+
+        & + .nav-menu__item {
+            border-top: 1px #eee solid;
         }
     }
 }
