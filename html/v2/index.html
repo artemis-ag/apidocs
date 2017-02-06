@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agrilyst — API Docs - v2</title>
+  <meta name="description" content="Agrilyst is the intelligence platform for indoor farms.">
+  <link rel="stylesheet" href="/api/docs/assets/css/app.min.css">
+
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="../favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="../favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;"/>
+  <meta name="msapplication-TileColor" content="#F9F9FA" />
+  <meta name="msapplication-TileImage" content="../mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="../mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="../mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="../mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="../mstile-310x310.png" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="inner">
+      <a href="http://agrilyst.com" class="header__logo">Agrilyst</a>
+
+      <a href="#" class="nav-toggle js-menu-toggle">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </a>
+
+      <h1 class="header__title">
+        <span class="lg">API Documentation v2.0</span>
+        <span class="sm">API Docs</span>
+      </h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="nav">
+      <div class="nav__content">
+        <h3 class="nav__heading">API Documentation v2.0</h3>
+        <ul class="nav-menu">
+          <li class="nav-menu__item is-current"><a href="#introduction" class="nav-menu__link">Introduction</a></li>
+          <li class="nav-menu__subheading">General</li>
+          <li class="nav-menu__item"><a href="#apiaccount" class="nav-menu__link">API Account</a></li>
+          <li class="nav-menu__item"><a href="#authentication" class="nav-menu__link">Authentication</a></li>
+          <li class="nav-menu__item"><a href="#health" class="nav-menu__link">Health Check</a></li>
+          <li class="nav-menu__item"><a href="#version" class="nav-menu__link">Version</a></li>
+          <li class="nav-menu__subheading">Sensors</li>
+          <li class="nav-menu__item"><a href="#listsensors" class="nav-menu__link">List Sensors</a></li>
+          <li class="nav-menu__subheading">Metrics</li>
+          <li class="nav-menu__item"><a href="#listmetrics" class="nav-menu__link">List Metrics</a></li>
+          <li class="nav-menu__item"><a href="#savemetrics" class="nav-menu__link">Save Metrics</a></li>
+          <li class="nav-menu__subheading">Nutrient Readings</li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+
+      <h2><a href="#introduction" id="introduction">Introduction</a></h2>
+      <p>Agrilyst provides a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST compatible</a> API interface that allows users to send metric data into the system for sensors.  This documentation is for the API version 1.0. It may be incompatible with previous or future API versions.  Please be sure you are using the correct documentation.</p>
+
+      <h2><a href="#apiaccount" id="apiaccount">API Account</a></h2>
+      <p>API accounts are per user. Using your access token, you will be able to use the API.</p>
+        
+
+      <h2><a href="#authentication" id="authentication">Authentication</a></h2>
+<p>The API requires HTTP basic authentication for every request. All requests must be sent over HTTPS.
+Authentication is accomplished with a user and token pair.  User is the email address that you used to create your account and token is the API token that can be found on the <a href="https://portal.agrilyst.com/apikey">API keys</a> page.</p>
+
+Note: API Tokens have been shortened for the purposes of this documentation. Your real API token will be longer.
+
+<br><br>A user with an email address `example@agrilyst.com` and an API token of `75AFDB82` will use the following command:
+
+
+      <pre><code>
+  curl -u example@agrilyst.com:75AFDB82 https://api.agrilyst.com/api/v2/
+      </code></pre>
+
+<h3>URL Encoding</h3>
+To use URL encoding, use the following format:
+
+      <pre><code>
+  https://user:token@api.agrilyst.com/api/v2/
+      </code></pre>
+
+<br>Because the `user` value is an email address, it has to be escaped in order to form a valid URL. The `@` sign is represented by the `%40` entity. For example:
+
+
+      <pre><code>
+  curl https://example%40agrilyst.com:75AFDB82@api.agrilyst.com/api/v2/
+      </code></pre>
+
+<br>Note: cURL automatically converts the `@` to a `%40` if you use the `-u` option, but not if you put authentication in the URL directly.
+
+        
+
+      <h2><a href="#health" id="health">GET /health - Health Check</a></h2>
+      <p>This check is the only API check that does not require authentication.  The health check endpoint returns a 200 OK if the API is up and working. Any other status indicates a failure in the API.</p>
+      <h3>Command :</h3>
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v2/health
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+      <pre><code>
+  {"health":"OK"}
+      </code></pre>
+  Status Code(s): 200
+
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+      <h2><a href="#version" id="version">GET /version - Version</a></h2>
+      <p>This check returns the API version. This is useful if you are using the /api/current path. The version endpoint returns a 200 OK and the version number.</p>
+      <h3>Command :</h3>
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v2/version
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+      <pre><code>
+  {"version":"2.0"}
+      </code></pre>
+  Status Code(s): 200
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+      <h2><a href="#listsensors" id="listsensors">GET /sensors - List Sensors</a></h2>
+      <p>This endpoint displays all available sensors. It returns a JSON hash of ID: SENSORNAME pairs</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v2/sensors
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+      <pre><code>[{
+    "id": 1,
+    "name": "Sensor 1",
+    "model": "priva"
+}, {
+    "id": 2,
+    "name": "Sensor 2",
+    "model": "wadsworth"
+}]</code></pre>
+  Status Code(s): 200
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+
+
+      <h2><a href="#listmetrics" id="listmetrics">GET /metrics - List Metrics</a></h2>
+      <p>This endpoint displays all available metrics for a sensor. You must specify a sensor ID in the request. It returns a JSON hash of ID: METRICNAME pairs</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v2/metrics/1
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+      <pre><code>
+[{
+    "id": 1,
+    "metric": "meas grh temp",
+    "metric_units": "°C",
+    "description": "Zone Greenhouse Temperature"
+}, {
+    "id": 2,
+    "metric": "meas CO2",
+    "metric_units": "ppm",
+    "description": "Zone CO2 Concentration"
+}]
+      </code></pre>
+  Status Code(s): 200
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+      <h2><a href="#savemetrics" id="savemetrics">POST /metrics - Save Metrics</a></h2>
+      <p>This endpoint accepts a POST method and saves a metrics for a sensor. It expects three values: a metric ID, a timestamp, and a metric value. It returns a 200 OK with a status for each metric.</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    -X POST \
+    -d '
+{
+  "metrics": [
+    { "id": 2,
+       "value": 42,
+       "time": 1471979056
+    },
+    { "id": 2,
+       "value": 55,
+       "time": 1471979057
+    },
+  ]
+}'
+    https://api.agrilyst.com/api/v2/metrics
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+  Status Code(s): 200, list of metrics and status
+      <pre><code>
+{
+    "status": 200,
+    "message": {
+        "id=2, time=1471979056, value=42": "saved",
+        "id=2, time=1471979057, value=55": "saved"
+    }
+}
+</code></pre>
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+  <br><br><br><br><br>
+
+    </main>
+  </div>
+  
+  
+
+  <footer class="footer">
+    <div class="inner">
+
+      <div class="footer__section">
+        <ul class="footer__menu">
+          <li class="footer__menu--item"><a href="https://portal.agrilyst.com/pages/privacy_policy">Privacy Policy</a></li>
+          <li class="footer__menu--item"><a href="https://portal.agrilyst.com/pages/terms">Terms of Use</a></li>
+          <li class="footer__menu--item"><a href="https://portal.agrilyst.com/">Login</a></li>
+        </ul>
+
+        <img src="/api/docs/assets/img/agrilyst-logo.png" alt="agrilyst" class="footer__logo">
+      </div>
+
+      <div class="footer__section">
+        <div class="footer__box">
+          <h3>Agrilyst Inc.</h3>
+          <address>25 Broadway, 5th Floor<br>
+            New York, NY 10004</address>
+        </div>
+
+
+        <div class="footer__box">
+          <h3>Call Us</h3>
+          <a href="tel:646-719-0304">646-719-0304</a>
+        </div>
+
+        <div class="footer__box">
+          <h3>Email Us</h3>
+          <a href='mai&#108;to&#58;i&#110;&#102;o&#64;&#97;gril&#37;79&#115;t&#46;%63&#111;%6D'>info&#64;a&#103;r&#105;lyst&#46;com</a>
+        </div>
+
+        <div class="footer__box footer__box--social">
+          <h3>Follow Us</h3>
+          <ul class="footer__social-menu">
+            <li class="footer__social-menu--item"><a href="http://facebook.com/agrilyst"><img src="/api/docs/assets/img/facebook.png" alt="facebook"></a></li>
+            <li class="footer__social-menu--item"><a href="http://twitter.com/agrilyst"><img src="/api/docs/assets/img/twitter.png" alt="twitter"></a></li>
+            <li class="footer__social-menu--item"><a href="http://instagram.com/agrilyst"><img src="/api/docs/assets/img/instagram.png" alt="instagram"></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/api/docs/assets/js/scripts.min.js"></script>
+</body>
+</html>
