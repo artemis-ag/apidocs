@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agrilyst — API Docs - v2</title>
   <meta name="description" content="Agrilyst is the intelligence platform for indoor farms.">
-  <link rel="stylesheet" href="/api/docs/assets/css/app.min.css">
+  <link rel="stylesheet" href="../assets/css/app.min.css">
 
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
@@ -65,6 +65,9 @@
           <li class="nav-menu__item"><a href="#listmetrics" class="nav-menu__link">List Metrics</a></li>
           <li class="nav-menu__item"><a href="#savemetrics" class="nav-menu__link">Save Metrics</a></li>
           <li class="nav-menu__subheading">Nutrient Readings</li>
+          <li class="nav-menu__item"><a href="#listtanks" class="nav-menu__link">List Tanks</a></li>
+          <li class="nav-menu__item"><a href="#listtankmetrics" class="nav-menu__link">List Tank Metrics</a></li>
+          <li class="nav-menu__item"><a href="#savetankreading" class="nav-menu__link">Save Tank Reading</a></li>
         </ul>
       </div>
     </nav>
@@ -154,7 +157,8 @@ To use URL encoding, use the following format:
       </code></pre>
 
     <h3>Successful Return:</h3>
-      <pre><code>[{
+      <pre><code>
+[{
     "id": 1,
     "name": "Sensor 1",
     "model": "priva"
@@ -162,7 +166,9 @@ To use URL encoding, use the following format:
     "id": 2,
     "name": "Sensor 2",
     "model": "wadsworth"
-}]</code></pre>
+}]
+
+</code></pre>
   Status Code(s): 200
   </p>
   <h3>Failed Return:</h3>
@@ -231,17 +237,128 @@ To use URL encoding, use the following format:
         "id=2, time=1471979057, value=55": "saved"
     }
 }
+
 </code></pre>
   </p>
   <h3>Failed Return:</h3>
   Status Code(s): Timeout, Any 4xx or 5xx status code
 
+  
+      <h2><a href="#listtanks" id="listtanks">GET /tanks - List Tanks</a></h2>
+      <p>This endpoint displays all available metrics for tanks. You can specify a tank ID in the request. It returns a JSON array.</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v2/tanks
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+      <pre><code>
+[{
+    "id": 1,
+    "name": "Tank A",
+    "capacity": 7641,
+    "status": "active"
+}, {
+    "id": 2,
+    "name": "Tank B",
+    "capacity": 6644,
+    "status": "active"
+}, {
+    "id": 3,
+    "name": "Tank C",
+    "capacity": 8526,
+    "status": "active"
+}] 
+  </code></pre>
+  Status Code(s): 200
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+
+      <h2><a href="#listtankmetrics" id="listtankmetrics">GET /tank_metrics - List Tank Metrics</a></h2>
+      <p>This endpoint displays all available metrics for a tank. It returns a JSON array of common and organization specific tank metrics.</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    https://api.agrilyst.com/api/v2/tank_metrics
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+      <pre><code>
+[{
+    "id": 1,
+    "name": "pH",
+    "units": "numeric"
+}, {
+    "id": 2,
+    "name": "Temperature",
+    "units": "degrees"
+}, {
+    "id": 3,
+    "name": "EC",
+    "units": "numeric"
+}]
+  </code></pre>
+  Status Code(s): 200
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+
+      <h2><a href="#savetankreading" id="savetankreading">POST /tank_reading - Save Tank Reading</a></h2>
+      <p>This endpoint accepts a POST method and saves a reading for a tank. A reading is comprised of a tank_reading object, and several metric objects. It returns a 200 OK with a status for each metric.</p>
+
+      <pre><code>
+  curl \
+    -u example@agrilyst.com:75AFDB82 \
+    -X POST \
+    -d '{
+  "tank_reading": {
+    "tank_id": 2,
+    "time": 1486142194
+    "overwrite": true
+  },
+  "metrics": [
+    {  "id": 2,
+       "value": 4.5
+    },
+    {  "id": 3,
+       "value": 50
+    }
+  ]
+}'
+    https://api.agrilyst.com/api/v2/tank_reading
+      </code></pre>
+
+    <h3>Successful Return:</h3>
+  Status Code(s): 200, list of metrics and status
+      <pre><code>
+{
+    "status": 200,
+    "message": {
+        "id=2, time=1471979056, value=42": "saved",
+        "id=2, time=1471979057, value=55": "saved"
+    }
+}
+
+</code></pre>
+  </p>
+  <h3>Failed Return:</h3>
+  Status Code(s): Timeout, Any 4xx or 5xx status code
+
+
+
+
+
   <br><br><br><br><br>
 
     </main>
   </div>
-  
-  
+
 
   <footer class="footer">
     <div class="inner">
@@ -288,6 +405,6 @@ To use URL encoding, use the following format:
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/api/docs/assets/js/scripts.min.js"></script>
+  <script type="text/javascript" src="../assets/js/scripts.min.js"></script>
 </body>
 </html>
