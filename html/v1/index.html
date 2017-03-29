@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Agrilyst — API Docs - v1</title>
   <meta name="description" content="Agrilyst is the intelligence platform for indoor farms.">
-  <link rel="stylesheet" href="/api/docs/assets/css/app.min.css">
+  <link rel="stylesheet" href="../assets/css/app.min.css">
 
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
@@ -67,13 +67,14 @@
       </div>
     </nav>
     <main class="content">
+      <p class='deprecated'>NOTE: API v1 is deprecated! Please use v2 instead.</p>
 
       <h2><a href="#introduction" id="introduction">Introduction</a></h2>
       <p>Agrilyst provides a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST compatible</a> API interface that allows users to send metric data into the system for sensors.  This documentation is for the API version 1.0. It may be incompatible with previous or future API versions.  Please be sure you are using the correct documentation.</p>
 
       <h2><a href="#apiaccount" id="apiaccount">API Account</a></h2>
       <p>API accounts are per user. Using your access token, you will be able to use the API.</p>
-        
+
 
       <h2><a href="#authentication" id="authentication">Authentication</a></h2>
 <p>The API requires HTTP basic authentication for every request. All requests must be sent over HTTPS.
@@ -104,7 +105,7 @@ To use URL encoding, use the following format:
 
 <br>Note: cURL automatically converts the `@` to a `%40` if you use the `-u` option, but not if you put authentication in the URL directly.
 
-        
+
 
       <h2><a href="#health" id="health">GET /health - Health Check</a></h2>
       <p>This check is the only API check that does not require authentication.  The health check endpoint returns a 200 OK if the API is up and working. Any other status indicates a failure in the API.</p>
@@ -203,8 +204,8 @@ To use URL encoding, use the following format:
 
     </main>
   </div>
-  
-  
+
+
 
   <footer class="footer">
     <div class="inner">

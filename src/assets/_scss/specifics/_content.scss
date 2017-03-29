@@ -36,6 +36,12 @@ h3 { margin-bottom: $smallSpacing; }
     min-height: 80vh;
     padding: $baseSpacing $baseSpacing $baseSpacing $largeSpacing;
 
+    .deprecated {
+      background-color: yellow;
+      padding: 5px;
+      border: 2px solid black;
+    }
+
     @include media('>md') {
         flex: 1 1 70%;
         padding: $largeSpacing $baseSpacing $largeSpacing $giantSpacing;
