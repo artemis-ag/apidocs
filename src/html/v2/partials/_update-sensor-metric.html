@@ -1,0 +1,25 @@
+<h2><a href="#update-sensor-metric" id="update-sensor-metric">PUT /sensors/:sensor_id/sensor_metrics/:id - Update Sensor Metric</a></h2>
+<p>
+  Updates a sensor metric with new information. Fields that can be changed are <code>metric</code>, <code>metric_units</code>, and <code>description</code>.
+</p>
+
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X PUT \
+  -d '{
+    "sensor_metric": {
+      "description": "Track CO2 in Greenhouse 2"
+    },
+  }'
+  https://api.agrilyst.com/api/v2/sensors/123456/sensor_metrics/54321
+</code></pre>
+
+<h3>Successful Return:</h3>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>

@@ -201,7 +201,7 @@ Status Code(s): 200
 Status Code(s): Timeout, Any 4xx or 5xx status code
 </p>
 <!-- partial -->
-  
+
       <!-- partial:partials/_list-sensor-models.html --><h2><a href="#list-sensor-models" id="list-sensor-models">GET /sensor_models - List Sensor Models</a></h2>
 <p>This endpoint displays the manufacturer/make of different sensor models that Agrilyst supports. Use the <code>name</code> value when making a sensor in the <a href="#create-sensor">Create Sensor</a> endpoint.</p>
 
@@ -310,7 +310,7 @@ Status Code(s): 200
 Status Code(s): Timeout, Any 4xx or 5xx status code
 </p>
 <!-- partial -->
-      <!-- partial:partials/_show-sensor.html --><h2><a href="#show-sensor" id="show-sensor">GET /sensor/:id - Show Sensor</a></h2>
+      <!-- partial:partials/_show-sensor.html --><h2><a href="#show-sensor" id="show-sensor">GET /sensors/:id - Show Sensor</a></h2>
 <p>Get data for a specific sensor in a facility.</p>
 
 <pre><code>curl \
@@ -381,6 +381,34 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 </p>
 <!-- partial -->
 
+      <!-- partial:partials/_create-sensor-metric.html --><h2><a href="#create-sensor-metric" id="create-sensor-metric">POST /sensors/:sensor_id/sensor_metrics - Create Sensor Metric</a></h2>
+<p>
+  Creates a new sensor metric under the given sensor ID. Check the <a href="#list-sensor">List Sensor</a> endpoint to get the list of sensors for your organization.
+</p>
+
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X POST \
+  -d '{
+    "sensor": {
+      "metric": "CO2 Percentage",
+      "metric_units": "%",
+      "description": "Track carbon dioxide in Greenhouse 1",
+    },
+  }'
+  https://api.agrilyst.com/api/v2/sensors/56789/sensor_metrics
+</code></pre>
+
+<h3>Successful Return:</h3>
+<p>
+Status Code(s): 201
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
       <!-- partial:partials/_list-sensor-metrics.html --><h2><a href="#list-sensor-metrics" id="list-sensor-metrics">GET /sensors/:sensor_id/sensor_metrics - List Sensor Metrics</a></h2>
 <p class='deprecated'><em>Note:</em> This endpoint is accessible via GET /metrics but this URL is deprecated and will be removed.</p>
 <p>This endpoint displays all available metrics for a sensor. You must specify a sensor ID in the request. It returns an array of JSON hashes representing each sensor metric.</p>
@@ -395,14 +423,86 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
   "id": 1,
   "metric": "meas grh temp",
   "metric_units": "°C",
-  "description": "Zone Greenhouse Temperature"
+  "description": "Zone Greenhouse Temperature",
+  "status": "active"
 }, {
   "id": 2,
   "metric": "meas CO2",
   "metric_units": "ppm",
-  "description": "Zone CO2 Concentration"
+  "description": "Zone CO2 Concentration",
+  "status": "active"
 }]
 </code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+      <!-- partial:partials/_show-sensor-metric.html --><h2><a href="#show-sensor-metric" id="show-sensor-metric">GET /sensors/:sensor_id/sensor_metrics/:id - Show Sensor Metric</a></h2>
+<p>Get data for a specific sensor metric under a sensor.</p>
+
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/sensors/56789/sensor_metrics/54321
+</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>{
+  "id": 54321,
+  "metric": "CO2 Percentage",
+  "metric_units": "%",
+  "description": "Track carbon dioxide in Greenhouse 1",
+  "status": "active"
+}</code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+      <!-- partial:partials/_update-sensor-metric.html --><h2><a href="#update-sensor-metric" id="update-sensor-metric">PUT /sensors/:sensor_id/sensor_metrics/:id - Update Sensor Metric</a></h2>
+<p>
+  Updates a sensor metric with new information. Fields that can be changed are <code>metric</code>, <code>metric_units</code>, and <code>description</code>.
+</p>
+
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X PUT \
+  -d '{
+    "sensor_metric": {
+      "description": "Track CO2 in Greenhouse 2"
+    },
+  }'
+  https://api.agrilyst.com/api/v2/sensors/123456/sensor_metrics/54321
+</code></pre>
+
+<h3>Successful Return:</h3>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+      <!-- partial:partials/_remove-sensor-metric.html --><h2><a href="#remove-sensor-metric" id="remove-sensor-metric">DELETE /sensors/:sensor_id/sensor_metrics/:id - Remove Sensor Metric</a></h2>
+<p>Removes the sensor metric with the given ID (in this example, <code>54321</code>) under a specific sensor.</p>
+
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X DELETE
+  https://api.agrilyst.com/api/v2/sensors/123456/sensor_metrics/54321
+</code></pre>
+
+<h3>Successful Return:</h3>
 <p>
 Status Code(s): 200
 </p>
@@ -456,7 +556,7 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
       <!-- partial:partials/_list-tanks.html --><h2><a href="#list-tanks" id="list-tanks">GET /tanks - List Tanks</a></h2>
 <p>This endpoint displays all available metrics for tanks. You can specify a tank ID in the request. It returns a JSON array.</p>
 
-<pre><code>curl \
+<pre><code class='bash'>curl \
   -u example@agrilyst.com:75AFDB82 \
   https://api.agrilyst.com/api/v2/tanks</code></pre>
 
