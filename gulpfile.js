@@ -8,9 +8,11 @@ var pngquant     = require('imagemin-pngquant')
 var rename       = require('gulp-rename')
 var gulpCopy     = require('gulp-copy')
 var browserSync  = require('browser-sync').create()
+var injectPartials = require('gulp-inject-partials')
 
 gulp.task('html', function () {
     gulp.src('src/html/**/*.html')
+        .pipe(injectPartials())
         .pipe(gulp.dest('./html/'))
         .pipe(browserSync.stream())
 })
