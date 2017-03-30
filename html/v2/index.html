@@ -74,9 +74,9 @@
           <li class="nav-menu__subheading">Sensor Data</li>
           <li class="nav-menu__item"><a href="#save-sensor-data" class="nav-menu__link">Save Sensor Data</a></li>
           <li class="nav-menu__subheading">Nutrient Readings</li>
-          <li class="nav-menu__item"><a href="#listtanks" class="nav-menu__link">List Tanks</a></li>
-          <li class="nav-menu__item"><a href="#listtankmetrics" class="nav-menu__link">List Tank Metrics</a></li>
-          <li class="nav-menu__item"><a href="#savetankreading" class="nav-menu__link">Save Tank Reading</a></li>
+          <li class="nav-menu__item"><a href="#list-tanks" class="nav-menu__link">List Tanks</a></li>
+          <li class="nav-menu__item"><a href="#list-tank-metrics" class="nav-menu__link">List Tank Metrics</a></li>
+          <li class="nav-menu__item"><a href="#save-tank-reading" class="nav-menu__link">Save Tank Reading</a></li>
         </ul>
       </div>
     </nav>
@@ -162,221 +162,219 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 </p>
 <!-- partial -->
 
+      <!-- partial:partials/_list-sensors.html --><h2><a href="#list-sensors" id="list-sensors">GET /sensors - List Sensors</a></h2>
+<p>This endpoint displays all available sensors.</p>
 
-      <h2><a href="#listsensors" id="listsensors">GET /sensors - List Sensors</a></h2>
-      <p>This endpoint displays all available sensors.</p>
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/sensors
+</code></pre>
 
-      <pre><code>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    https://api.agrilyst.com/api/v2/sensors
-      </code></pre>
-
-    <h3>Successful Return:</h3>
-      <pre><code>
-[{
-    "id": 1,
-    "name": "Sensor 1",
-    "model": "priva",
-    "visible": "true",
-    "status": "active"
+<h3>Successful Return:</h3>
+<pre><code>[{
+  "id": 1,
+  "name": "Sensor 1",
+  "model": "priva",
+  "visible": "true",
+  "status": "active"
 }, {
-    "id": 2,
-    "name": "Sensor 2",
-    "model": "wadsworth",
-    "visible": "true",
-    "status": "active"
+  "id": 2,
+  "name": "Sensor 2",
+  "model": "wadsworth",
+  "visible": "true",
+  "status": "active"
 }]
 
 </code></pre>
-  Status Code(s): 200
-  </p>
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
+<p>
+Status Code(s): 200
+</p>
 
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
 
+      <!-- partial:partials/_list-sensor-metrics.html --><h2><a href="#list-sensor-metrics" id="list-sensor-metrics">GET /sensors/:sensor_id/sensor_metrics - List Sensor Metrics</a></h2>
+<p class='deprecated'><em>Note:</em> This endpoint is accessible via GET /metrics but this URL is deprecated and will be removed.</p>
+<p>This endpoint displays all available metrics for a sensor. You must specify a sensor ID in the request. It returns an array of JSON hashes representing each sensor metric.</p>
 
-      <h2><a href="#list-sensor-metrics" id="list-sensor-metrics">GET /sensors/:sensor_id/sensor_metrics - List Sensor Metrics</a></h2>
-      <p class='deprecated'><em>Note:</em> This endpoint is accessible via GET /metrics but this URL is deprecated and will be removed.</p>
-      <p>This endpoint displays all available metrics for a sensor. You must specify a sensor ID in the request. It returns an array of JSON hashes representing each sensor metric.</p>
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/sensors/1/sensor_metrics
+</code></pre>
 
-      <pre><code class='bash'>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    https://api.agrilyst.com/api/v2/sensors/1/sensor_metrics
-      </code></pre>
-
-    <h3>Successful Return:</h3>
-      <pre><code>
-[{
-    "id": 1,
-    "metric": "meas grh temp",
-    "metric_units": "°C",
-    "description": "Zone Greenhouse Temperature"
+<h3>Successful Return:</h3>
+<pre><code>[{
+  "id": 1,
+  "metric": "meas grh temp",
+  "metric_units": "°C",
+  "description": "Zone Greenhouse Temperature"
 }, {
-    "id": 2,
-    "metric": "meas CO2",
-    "metric_units": "ppm",
-    "description": "Zone CO2 Concentration"
+  "id": 2,
+  "metric": "meas CO2",
+  "metric_units": "ppm",
+  "description": "Zone CO2 Concentration"
 }]
-      </code></pre>
-  Status Code(s): 200
-  </p>
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
+</code></pre>
+<p>
+Status Code(s): 200
+</p>
 
-      <h2><a href="#save-sensor-data" id="save-sensor-data">POST /sensor_data - Save Sensor Data</a></h2>
-      <p class='deprecated'><em>Note:</em> This endpoint is accessible via POST /metrics but this URL is deprecated and will be removed.</p>
-      <p>This endpoint accepts a POST method and saves data recordings for a sensor. It expects three values: a sensor metric ID, a timestamp, and a value. It returns a 200 OK with a status for each metric.</p>
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
 
-      <pre><code>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    -X POST \
-    -d '
-{
-  "metrics": [
-    { "id": 2,
+      <!-- partial:partials/_save-sensor-data.html --><h2><a href="#save-sensor-data" id="save-sensor-data">POST /sensor_data - Save Sensor Data</a></h2>
+<p class='deprecated'><em>Note:</em> This endpoint is accessible via POST /metrics but this URL is deprecated and will be removed.</p>
+<p>This endpoint accepts a POST method and saves data recordings for a sensor. It expects three values: a sensor metric ID, a timestamp, and a value. It returns a 200 OK with a status for each metric.</p>
+
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X POST \
+  -d '{
+    "metrics": [
+      { "id": 2,
        "value": 42,
        "time": 1471979056
-    },
-    { "id": 2,
+      },
+      { "id": 2,
        "value": 55,
        "time": 1471979057
-    },
-  ]
-}'
-    https://api.agrilyst.com/api/v2/metrics
-      </code></pre>
+      },
+    ]
+  }'
+  https://api.agrilyst.com/api/v2/metrics</code></pre>
 
-    <h3>Successful Return:</h3>
+<h3>Successful Return:</h3>
+<p>
   Status Code(s): 200, list of metrics and status
-      <pre><code>
-{
-    "status": 200,
-    "message": {
-        "id=2, time=1471979056, value=42": "saved",
-        "id=2, time=1471979057, value=55": "saved"
-    }
-}
+</p>
+<pre><code>{
+  "status": 200,
+  "message": {
+    "id=2, time=1471979056, value=42": "saved",
+    "id=2, time=1471979057, value=55": "saved"
+  }
+}</code></pre>
+</p>
 
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+
+      <!-- partial:partials/_list-tanks.html --><h2><a href="#list-tanks" id="list-tanks">GET /tanks - List Tanks</a></h2>
+<p>This endpoint displays all available metrics for tanks. You can specify a tank ID in the request. It returns a JSON array.</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/tanks</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>[{
+  "id": 1,
+  "name": "Tank A",
+  "capacity": 7641,
+  "status": "active"
+}, {
+  "id": 2,
+  "name": "Tank B",
+  "capacity": 6644,
+  "status": "active"
+}, {
+  "id": 3,
+  "name": "Tank C",
+  "capacity": 8526,
+  "status": "active"
+}]</code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+      <!-- partial:partials/_list-tank-metrics.html --><h2><a href="#list-tank-metrics" id="list-tank-metrics">GET /tank_metrics - List Tank Metrics</a></h2>
+<p>This endpoint displays all available metrics for a tank. It returns a JSON array of common and organization specific tank metrics.</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/tank_metrics
 </code></pre>
-  </p>
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
 
-
-      <h2><a href="#listtanks" id="listtanks">GET /tanks - List Tanks</a></h2>
-      <p>This endpoint displays all available metrics for tanks. You can specify a tank ID in the request. It returns a JSON array.</p>
-
-      <pre><code>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    https://api.agrilyst.com/api/v2/tanks
-      </code></pre>
-
-    <h3>Successful Return:</h3>
-      <pre><code>
-[{
-    "id": 1,
-    "name": "Tank A",
-    "capacity": 7641,
-    "status": "active"
+<h3>Successful Return:</h3>
+<pre><code>[{
+  "id": 1,
+  "name": "pH",
+  "units": "numeric"
 }, {
-    "id": 2,
-    "name": "Tank B",
-    "capacity": 6644,
-    "status": "active"
+  "id": 2,
+  "name": "Temperature",
+  "units": "degrees"
 }, {
-    "id": 3,
-    "name": "Tank C",
-    "capacity": 8526,
-    "status": "active"
-}]
-  </code></pre>
-  Status Code(s): 200
-  </p>
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
+  "id": 3,
+  "name": "EC",
+  "units": "numeric"
+}]</code></pre>
+<p>
+Status Code(s): 200
+</p>
 
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+      <!-- partial:partials/_save-tank-reading.html --><h2><a href="#save-tank-reading" id="save-tank-reading">POST /tank_reading - Save Tank Reading</a></h2>
+<p>This endpoint accepts a POST method and saves a reading for a tank. A reading is comprised of a tank_reading object, and several metric objects. It returns a 200 OK with a status for each metric.</p>
 
-      <h2><a href="#listtankmetrics" id="listtankmetrics">GET /tank_metrics - List Tank Metrics</a></h2>
-      <p>This endpoint displays all available metrics for a tank. It returns a JSON array of common and organization specific tank metrics.</p>
-
-      <pre><code>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    https://api.agrilyst.com/api/v2/tank_metrics
-      </code></pre>
-
-    <h3>Successful Return:</h3>
-      <pre><code>
-[{
-    "id": 1,
-    "name": "pH",
-    "units": "numeric"
-}, {
-    "id": 2,
-    "name": "Temperature",
-    "units": "degrees"
-}, {
-    "id": 3,
-    "name": "EC",
-    "units": "numeric"
-}]
-  </code></pre>
-  Status Code(s): 200
-  </p>
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
-
-
-      <h2><a href="#savetankreading" id="savetankreading">POST /tank_reading - Save Tank Reading</a></h2>
-      <p>This endpoint accepts a POST method and saves a reading for a tank. A reading is comprised of a tank_reading object, and several metric objects. It returns a 200 OK with a status for each metric.</p>
-
-      <pre><code>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    -X POST \
-    -d '{
-  "tank_reading": {
-    "tank_id": 2,
-    "time": 1486142194
-    "overwrite": true
-  },
-  "metrics": [
-    {  "id": 2,
-       "value": 4.5
+<pre><code class='bash'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X POST \
+  -d '{
+    "tank_reading": {
+      "tank_id": 2,
+      "time": 1486142194
+      "overwrite": true
     },
-    {  "id": 3,
-       "value": 50
-    }
-  ]
-}'
-    https://api.agrilyst.com/api/v2/tank_reading
-      </code></pre>
-
-    <h3>Successful Return:</h3>
-  Status Code(s): 200, list of metrics and status
-      <pre><code>
-{
-    "status": 200,
-    "message": {
-        "id=2, time=1471979056, value=42": "saved",
-        "id=2, time=1471979057, value=55": "saved"
-    }
-}
-
+    "metrics": [
+      { "id": 2,
+        "value": 4.5
+      },
+      { "id": 3,
+        "value": 50
+      }
+    ]
+  }'
+  https://api.agrilyst.com/api/v2/tank_reading
 </code></pre>
-  </p>
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
 
+<h3>Successful Return:</h3>
+<p>
+Status Code(s): 200, list of metrics and status
+</p>
+<pre><code>{
+  "status": 200,
+  "message": {
+    "id=2, time=1471979056, value=42": "saved",
+    "id=2, time=1471979057, value=55": "saved"
+  }
+}</code></pre>
 
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
 
-
-
-  <br><br><br><br><br>
+      <br><br><br><br><br>
 
     </main>
   </div>
