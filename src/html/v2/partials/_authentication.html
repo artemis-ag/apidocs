@@ -1,0 +1,33 @@
+<h2><a href="#authentication" id="authentication">Authentication</a></h2>
+<p>
+  The API requires HTTP Basic Authentication for every request. All requests must be sent over HTTPS.
+  Authentication is accomplished with a user and token pair.  User is the email address that you used to create your account and token is the API token that can be found on the <a href="https://portal.agrilyst.com/apikey">API keys</a> page.
+</p>
+
+<p>
+  <em>Note: API Tokens have been shortened for the purposes of this documentation. Your real API token will be longer.</em>
+</p>
+
+<p>
+  A user with an email address <code>example@agrilyst.com</code> and an API token of <code>75AFDB82</code> will use the following command:
+</p>
+
+<pre><code class='curl'>curl -u example@agrilyst.com:75AFDB82 https://api.agrilyst.com/api/v2/
+</code></pre>
+
+<h3>URL Encoding</h3>
+<p>To use URL encoding, use the following format:</p>
+
+<pre><code class='bash'>https://user:token@api.agrilyst.com/api/v2/
+</code></pre>
+
+<p>
+  Because the <code>user</code> value is an email address, it has to be escaped in order to form a valid URL. The <code>@</code> sign is represented by the <code>%40</code> entity. For example:
+</p>
+
+<pre><code class='curl'>curl https://example%40agrilyst.com:75AFDB82@api.agrilyst.com/api/v2/
+</code></pre>
+
+<p>
+  <em>Note: cURL automatically converts the <code>@</code> to a <code>%40</code> if you use the <code>-u</code> option, but not if you put authentication in the URL directly.</em>
+</p>

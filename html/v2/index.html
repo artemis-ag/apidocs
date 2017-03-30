@@ -84,83 +84,84 @@
       <!-- partial:partials/_introduction.html --><h2><a href="#introduction" id="introduction">Introduction</a></h2>
 <p>Agrilyst provides a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST compatible</a> API interface that allows users to send metric data into the system for sensors.  This documentation is for the API version 2.0. It may be incompatible with previous or future API versions.  Please be sure you are using the correct documentation.</p>
 <!-- partial -->
-
-<h2><a href="#apiaccount" id="apiaccount">API Account</a></h2>
+      <!-- partial:partials/_apiaccount.html --><h2><a href="#apiaccount" id="apiaccount">API Account</a></h2>
 <p>API accounts are per user. By using your access token, you will be able to use the API.</p>
-
-
-      <h2><a href="#authentication" id="authentication">Authentication</a></h2>
-<p>The API requires HTTP Basic Authentication for every request. All requests must be sent over HTTPS.
-Authentication is accomplished with a user and token pair.  User is the email address that you used to create your account and token is the API token that can be found on the <a href="https://portal.agrilyst.com/apikey">API keys</a> page.</p>
-
+<!-- partial -->
+      <!-- partial:partials/_authentication.html --><h2><a href="#authentication" id="authentication">Authentication</a></h2>
 <p>
-<em>Note: API Tokens have been shortened for the purposes of this documentation. Your real API token will be longer.</em>
+  The API requires HTTP Basic Authentication for every request. All requests must be sent over HTTPS.
+  Authentication is accomplished with a user and token pair.  User is the email address that you used to create your account and token is the API token that can be found on the <a href="https://portal.agrilyst.com/apikey">API keys</a> page.
 </p>
 
 <p>
-A user with an email address <code>example@agrilyst.com</code> and an API token of <code>75AFDB82</code> will use the following command:
+  <em>Note: API Tokens have been shortened for the purposes of this documentation. Your real API token will be longer.</em>
 </p>
 
+<p>
+  A user with an email address <code>example@agrilyst.com</code> and an API token of <code>75AFDB82</code> will use the following command:
+</p>
 
-      <pre><code class='curl'>
-  curl -u example@agrilyst.com:75AFDB82 https://api.agrilyst.com/api/v2/
-      </code></pre>
+<pre><code class='curl'>curl -u example@agrilyst.com:75AFDB82 https://api.agrilyst.com/api/v2/
+</code></pre>
 
 <h3>URL Encoding</h3>
 <p>To use URL encoding, use the following format:</p>
 
-      <pre><code class='bash'>
-  https://user:token@api.agrilyst.com/api/v2/
-      </code></pre>
+<pre><code class='bash'>https://user:token@api.agrilyst.com/api/v2/
+</code></pre>
 
 <p>
-Because the <code>user</code> value is an email address, it has to be escaped in order to form a valid URL. The <code>@</code> sign is represented by the <code>%40</code> entity. For example:</p>
-
-
-      <pre><code class='curl'>
-  curl https://example%40agrilyst.com:75AFDB82@api.agrilyst.com/api/v2/
-      </code></pre>
-
-<p>
-<em>Note: cURL automatically converts the <code>@</code> to a <code>%40</code> if you use the <code>-u</code> option, but not if you put authentication in the URL directly.</em>
+  Because the <code>user</code> value is an email address, it has to be escaped in order to form a valid URL. The <code>@</code> sign is represented by the <code>%40</code> entity. For example:
 </p>
 
-      <h2><a href="#health" id="health">GET /health - Health Check</a></h2>
-      <p>This check is the only API check that does not require authentication.  The health check endpoint returns a 200 OK if the API is up and working. Any other status indicates a failure in the API.</p>
-      <h3>Command :</h3>
-      <pre><code class='curl'>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    https://api.agrilyst.com/api/v2/health
-      </code></pre>
+<pre><code class='curl'>curl https://example%40agrilyst.com:75AFDB82@api.agrilyst.com/api/v2/
+</code></pre>
 
-    <h3>Successful Return:</h3>
-      <pre><code>
-  {"health":"OK"}
-      </code></pre>
+<p>
+  <em>Note: cURL automatically converts the <code>@</code> to a <code>%40</code> if you use the <code>-u</code> option, but not if you put authentication in the URL directly.</em>
+</p>
+<!-- partial -->
+      <!-- partial:partials/_health.html --><h2><a href="#health" id="health">GET /health - Health Check</a></h2>
+<p>This check is the only API check that does not require authentication.  The health check endpoint returns a 200 OK if the API is up and working. Any other status indicates a failure in the API.</p>
+<h3>Command:</h3>
+<pre><code class='curl'>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/health
+</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>{"health":"OK"}
+</code></pre>
+<p>
   Status Code(s): 200
+</p>
 
-  <h3>Failed Return:</h3>
-  Status Code(s): Timeout, Any 4xx or 5xx status code
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+      <!-- partial:partials/_version.html --><h2><a href="#version" id="version">GET /version - Version</a></h2>
+<p>This check returns the API version. The version endpoint returns a 200 OK and the version number.</p>
+<h3>Command:</h3>
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/version
+</code></pre>
 
-      <h2><a href="#version" id="version">GET /version - Version</a></h2>
-      <p>This check returns the API version. The version endpoint returns a 200 OK and the version number.</p>
-      <h3>Command :</h3>
-      <pre><code>
-  curl \
-    -u example@agrilyst.com:75AFDB82 \
-    https://api.agrilyst.com/api/v2/version
-      </code></pre>
+<h3>Successful Return:</h3>
+<pre><code>{"version":"2.0"}
+</code></pre>
+<p>
+Status Code(s): 200
+</p>
 
-    <h3>Successful Return:</h3>
-      <pre><code>
-  {"version":"2.0"}
-      </code></pre>
-  Status Code(s): 200
-  </p>
-  <h3>Failed Return:</h3>
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
 
-  Status Code(s): Timeout, Any 4xx or 5xx status code
 
       <h2><a href="#listsensors" id="listsensors">GET /sensors - List Sensors</a></h2>
       <p>This endpoint displays all available sensors.</p>
