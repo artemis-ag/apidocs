@@ -49,6 +49,8 @@
         padding: $largeSpacing 0 $largeSpacing $baseSpacing;
 
         &.is-fixed {
+          /*
+          disabled for now since the left nav is too big for a screen!
             position: relative;
 
             .nav__content {
@@ -56,6 +58,7 @@
                 top: $largeSpacing;
                 width: 100%;
             }
+            */
         }
 
         &.is-bottom {
