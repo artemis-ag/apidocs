@@ -11,7 +11,7 @@ var browserSync  = require('browser-sync').create()
 var injectPartials = require('gulp-inject-partials')
 
 gulp.task('html', function () {
-    gulp.src('src/html/**/*.html')
+    gulp.src(['src/html/**/*.html', '!src/html/**/_*.html'])
         .pipe(injectPartials())
         .pipe(gulp.dest('./html/'))
         .pipe(browserSync.stream())

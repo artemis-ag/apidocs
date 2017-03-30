@@ -1,0 +1,25 @@
+<h2><a href="#update-sensor" id="update-sensor">PUT /sensors/:id - Update Sensor</a></h2>
+<p>
+  Updates a sensor with new information. In this example, the sensor ID to update is <code>123456</code>. Fields that can be changed are <code>name</code>, <code>model</code>, and <code>visible</code>. Check the <a href="#list-sensor-models">List Sensor Models</a> endpoint for acceptable inputs for the <code>model</code> parameter.
+</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X PUT \
+  -d '{
+    "sensor": {
+      "name": "Greenhouse 1 Sensor",
+    },
+  }'
+  https://api.agrilyst.com/api/v2/sensors/123456
+</code></pre>
+
+<h3>Successful Return:</h3>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
