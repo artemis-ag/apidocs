@@ -59,6 +59,10 @@
           <li class="nav-menu__item"><a href="#authentication" class="nav-menu__link">Authentication</a></li>
           <li class="nav-menu__item"><a href="#health" class="nav-menu__link">Health Check</a></li>
           <li class="nav-menu__item"><a href="#version" class="nav-menu__link">Version</a></li>
+          <li class="nav-menu__subheading">Facilities</li>
+          <li class="nav-menu__item"><a href="#list-facilities" class="nav-menu__link">List Facilities</a></li>
+          <li class="nav-menu__subheading">Sensor Models</li>
+          <li class="nav-menu__item"><a href="#list-sensor-models" class="nav-menu__link">List Sensor Models</a></li>
           <li class="nav-menu__subheading">Sensors</li>
           <li class="nav-menu__item"><a href="#create-sensor" class="nav-menu__link">Create Sensor</a></li>
           <li class="nav-menu__item"><a href="#list-sensors" class="nav-menu__link">List Sensors</a></li>
@@ -152,6 +156,87 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 <h3>Successful Return:</h3>
 <pre><code>{"version":"2.0"}
 </code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+
+      <!-- partial:partials/_list-facilities.html --><h2><a href="#list-facilities" id="list-facilities">GET /facilities - List Facilities</a></h2>
+<p>This endpoint displays all available facilities for your organization.</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/facilities
+</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>[{
+  "id": 2,
+  "facility_type": "greenhouse",
+  "name": "Facility Alpha",
+  "postal_code": 90210,
+  "size": 5000,
+  "size_type": "sqft",
+  "time_zone": "UTC"
+}, {
+  "id": 1,
+  "facility_type": "vertical",
+  "name": "Facility Beta",
+  "postal_code": 14222,
+  "size": 10000,
+  "size_type": "sqmt",
+  "time_zone": "EST"
+}]</code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
+<!-- partial -->
+  
+      <!-- partial:partials/_list-sensor-models.html --><h2><a href="#list-sensor-models" id="list-sensor-models">GET /sensor_models - List Sensor Models</a></h2>
+<p>This endpoint displays the manufacturer/make of different sensor models that Agrilyst supports. Use the <code>name</code> value when making a sensor in the <a href="#create-sensor">Create Sensor</a> endpoint.</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/sensor_models
+</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>[
+  {
+    id: 0,
+    name: "priva"
+  },
+  {
+    id: 1,
+    name: "link4iponic"
+  },
+  {
+    id: 2,
+    name: "wadsworth"
+  },
+  {
+    id: 3,
+    name: "avidz"
+  },
+  {
+    id: 4,
+    name: "motorleaf"
+  },
+  {
+    id: 99,
+    name: "other"
+  }
+]</code></pre>
 <p>
 Status Code(s): 200
 </p>

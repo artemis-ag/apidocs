@@ -1,0 +1,34 @@
+<h2><a href="#list-facilities" id="list-facilities">GET /facilities - List Facilities</a></h2>
+<p>This endpoint displays all available facilities for your organization.</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/facilities
+</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>[{
+  "id": 2,
+  "facility_type": "greenhouse",
+  "name": "Facility Alpha",
+  "postal_code": 90210,
+  "size": 5000,
+  "size_type": "sqft",
+  "time_zone": "UTC"
+}, {
+  "id": 1,
+  "facility_type": "vertical",
+  "name": "Facility Beta",
+  "postal_code": 14222,
+  "size": 10000,
+  "size_type": "sqmt",
+  "time_zone": "EST"
+}]</code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>
