@@ -49,16 +49,17 @@
         padding: $largeSpacing 0 $largeSpacing $baseSpacing;
 
         &.is-fixed {
-          /*
-          disabled for now since the left nav is too big for a screen!
+            padding-top: 0;
+            padding-bottom: 0;
             position: relative;
 
             .nav__content {
+                max-height: 100vh;
+                overflow: scroll;
                 position: fixed;
-                top: $largeSpacing;
+                top: 0;
                 width: 100%;
             }
-            */
         }
 
         &.is-bottom {
@@ -67,7 +68,7 @@
             .nav__content {
                 position: absolute;
                 top: auto;
-                bottom: $largeSpacing;
+                bottom: 0;
                 width: 100%;
             }
         }
