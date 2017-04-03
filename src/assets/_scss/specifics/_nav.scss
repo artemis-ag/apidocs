@@ -107,6 +107,21 @@
     @include media('>md') {
         border: 0;
 
+        &.has-dropdown {
+            .nav-menu__link {
+                background-image: url('../img/triangle.svg');
+                background-position: 5px center;
+                background-repeat: no-repeat;
+                background-size: 5px;
+            }
+
+            &.is-current .nav-menu__link {
+                background-image: url('../img/triangle-down.svg');
+                background-position: 4px center;
+                background-size: auto 5px;
+            }
+        }
+
         &.is-current {
             .nav-menu__link {
                 background-color: color(white);
@@ -125,19 +140,23 @@
     font-size: 16px;
     padding: $smallSpacing $baseSpacing;
     text-decoration: none;
-    transition: background .075s ease;
     width: 100%;
 
-    &:hover,
-    &:focus {
+    &:hover {
         background-color: lighten(color(purple), 3%);
         color: color(white);
     }
 
     @include media('>md') {
         border-left: 2px transparent solid;
-        padding-left: $smallSpacing;
+        padding-left: $baseSpacing;
         color: color(purple);
+
+        &:hover {
+            background-color: transparentize(color(white), .5);
+            border-left: 2px lighten(color(gray, light), 15%) solid;
+            color: color(purple);
+        }
     }
 }
 
@@ -158,6 +177,7 @@
 .nav-submenu__item {
     @include media('>md') {
         &.is-current .nav-submenu__link {
+            background-color: darken(color(gray, lightest), 1%);
             text-decoration: underline;
         }
     }
@@ -169,16 +189,19 @@
     font-size: 14px;
     padding: $smallSpacing $baseSpacing;
     text-decoration: none;
-    transition: background .075s ease;
     width: 100%;
 
-    &:hover,
-    &:focus {
+    &:hover {
         background-color: lighten(color(purple), 3%);
         color: color(white);
     }
 
     @include media('>md') {
         color: color(purple);
+
+        &:hover {
+            background-color: darken(color(gray, lightest), 1%);
+            color: color(black);
+        }
     }
 }

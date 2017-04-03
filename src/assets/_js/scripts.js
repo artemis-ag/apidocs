@@ -62,6 +62,7 @@ $(function () {
                                                .siblings().removeClass('is-current')
             
             $('.nav-submenu__link[href="' + current + '"]').parent().addClass('is-current')
+                                                           .siblings().removeClass('is-current')
         })
     })
 
