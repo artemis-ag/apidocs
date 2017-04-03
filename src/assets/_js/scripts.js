@@ -10,7 +10,7 @@ $(function () {
         $('.nav').toggleClass('is-active')
     })
 
-    $('.nav-menu__link').on('click', function (ev) {
+    $('.nav a').on('click', function (ev) {
         ev.preventDefault()
 
         var href = $(this).attr('href')
@@ -21,7 +21,7 @@ $(function () {
     var scrollTargets = new Array()
     function calibrateScrollTargets() {
         scrollTargets = []
-        $('.nav-menu__link').each(function () {
+        $('.nav a').each(function () {
             var target = $(this).attr('href')
             scrollTargets.push([$(target).offset().top - 10, target])
         })
@@ -58,7 +58,10 @@ $(function () {
                 }
             }
 
-            $('.nav-menu__link[href="'+current+'"]').parent().addClass('is-current').siblings().removeClass('is-current')
+            $('.nav a[href="' + current + '"]').parents('.nav-menu__item').addClass('is-current')
+                                               .siblings().removeClass('is-current')
+            
+            $('.nav-submenu__link[href="' + current + '"]').parent().addClass('is-current')
         })
     })
 
