@@ -1,0 +1,31 @@
+<h2><a href="#create-sensor" id="create-sensor">POST /sensors - Create Sensor</a></h2>
+<p>
+  Makes a new sensor in a facility. Check the <a href="#list-sensor-models">List Sensor Models</a> endpoint for acceptable inputs for the <code>model</code> parameter.
+</p>
+
+<p>
+  Optionally, provide a <code>visible</code> flag set to <code>false</code> if you want to hide a sensor from being shown in the dashboard. By default <code>visible</code> is `true`, and sensors are shown in reports and the dashboard.
+</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  -X POST \
+  -d '{
+    "sensor": {
+      "name": "Greenhouse 1 Sensor",
+      "model": "priva",
+      "facility_id": 98765
+    },
+  }'
+  https://api.agrilyst.com/api/v2/sensors
+</code></pre>
+
+<h3>Successful Return:</h3>
+<p>
+Status Code(s): 201
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>

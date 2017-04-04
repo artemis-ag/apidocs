@@ -1,0 +1,43 @@
+<h2><a href="#list-sensor-models" id="list-sensor-models">GET /sensor_models - List Sensor Models</a></h2>
+<p>This endpoint displays the manufacturer/make of different sensor models that Agrilyst supports. Use the <code>name</code> value when making a sensor in the <a href="#create-sensor">Create Sensor</a> endpoint.</p>
+
+<pre><code>curl \
+  -u example@agrilyst.com:75AFDB82 \
+  https://api.agrilyst.com/api/v2/sensor_models
+</code></pre>
+
+<h3>Successful Return:</h3>
+<pre><code>[
+  {
+    id: 0,
+    name: "priva"
+  },
+  {
+    id: 1,
+    name: "link4iponic"
+  },
+  {
+    id: 2,
+    name: "wadsworth"
+  },
+  {
+    id: 3,
+    name: "avidz"
+  },
+  {
+    id: 4,
+    name: "motorleaf"
+  },
+  {
+    id: 99,
+    name: "other"
+  }
+]</code></pre>
+<p>
+Status Code(s): 200
+</p>
+
+<h3>Failed Return:</h3>
+<p>
+Status Code(s): Timeout, Any 4xx or 5xx status code
+</p>

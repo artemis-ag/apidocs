@@ -25,6 +25,8 @@ h2 a {
     &:focus { outline: none; }
     &:hover,
     &:focus {
+        color: color(black);
+        
         &:before { opacity: 1; }
     }
 }
@@ -35,6 +37,12 @@ h3 { margin-bottom: $smallSpacing; }
     background-color: color(white);
     min-height: 80vh;
     padding: $baseSpacing $baseSpacing $baseSpacing $largeSpacing;
+
+    .deprecated {
+      background-color: yellow;
+      padding: 5px;
+      border: 2px solid black;
+    }
 
     @include media('>md') {
         flex: 1 1 70%;

@@ -49,6 +49,8 @@
         padding: $largeSpacing 0 $largeSpacing $baseSpacing;
 
         &.is-fixed {
+            padding-top: 0;
+            padding-bottom: 0;
             position: relative;
 
             .nav__content {
@@ -80,7 +82,7 @@
 
     @include media('>md') {
         color: color(black);
-        padding: 0;
+        padding: 0 0 0 $smallSpacing;
     }
 }
 
@@ -97,80 +99,109 @@
         border: 0;
     }
 }
+
 .nav-menu__item {
     border-bottom: 1px darken(color(purple), 5%) solid;
     border-top: 1px lighten(color(purple), 5%) solid;
 
-    &.is-current {
-        .nav-menu__link {
-            background-color: lighten(color(purple), 3%);
-            cursor: default;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-    }
-
     @include media('>md') {
-        border-top: 0;
-        border-bottom: 1px #eee solid;
+        border: 0;
+
+        &.has-dropdown {
+            .nav-menu__link {
+                background-image: url('../img/triangle.svg');
+                background-position: 5px center;
+                background-repeat: no-repeat;
+                background-size: 5px;
+            }
+
+            &.is-current .nav-menu__link {
+                background-image: url('../img/triangle-down.svg');
+                background-position: 4px center;
+                background-size: auto 5px;
+            }
+        }
 
         &.is-current {
-            border-left: 1px #eee solid;
-            margin-left: -$smallSpacing;
-
             .nav-menu__link {
-                background: color(white);
-                color: color(black);
-                padding-left: $smallSpacing;
-                text-decoration: none;
+                background-color: color(white);
+                border-left: 2px lighten(color(gray, light), 15%) solid;
+            }
+            .nav-menu__submenu {
+                display: block;
             }
         }
     }
 }
+
 .nav-menu__link {
     color: color(white);
     display: inline-block;
-    font-size: 15px;
+    font-size: 16px;
     padding: $smallSpacing $baseSpacing;
     text-decoration: none;
-    transition: background .075s ease;
     width: 100%;
 
-    &:hover,
-    &:focus {
+    &:hover {
+        background-color: lighten(color(purple), 3%);
+        color: color(white);
+    }
+
+    @include media('>md') {
+        border-left: 2px transparent solid;
+        padding-left: $baseSpacing;
+        color: color(purple);
+
+        &:hover {
+            background-color: transparentize(color(white), .5);
+            border-left: 2px lighten(color(gray, light), 15%) solid;
+            color: color(purple);
+        }
+    }
+}
+
+.nav-menu__submenu {
+    border-left: 2px darken(color(purple), 10%) solid;
+    list-style: none;
+    margin: 0 0 $smallSpacing $baseSpacing;
+    padding: 0;
+
+    @include media('>md') {
+        border-left-color: lighten(color(gray, light), 18%);
+        display: none;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+}
+
+.nav-submenu__item {
+    @include media('>md') {
+        &.is-current .nav-submenu__link {
+            background-color: darken(color(gray, lightest), 1%);
+            text-decoration: underline;
+        }
+    }
+}
+
+.nav-submenu__link {
+    color: transparentize(color(white), .25);
+    display: inline-block;
+    font-size: 14px;
+    padding: $smallSpacing $baseSpacing;
+    text-decoration: none;
+    width: 100%;
+
+    &:hover {
         background-color: lighten(color(purple), 3%);
         color: color(white);
     }
 
     @include media('>md') {
         color: color(purple);
-        padding-left: 0;
 
-        &:hover,
-        &:focus {
-            background-color: transparent;
-            color: color(purple);
-            text-decoration: underline;
-        }
-    }
-}
-
-.nav-menu__subheading {
-    border-bottom: 1px darken(color(purple), 5%) solid;
-    border-top: 1px lighten(color(purple), 5%) solid;
-    color: color(purple, light);
-    font-size: 12px;
-    font-weight: 500;
-    padding: $baseSpacing $baseSpacing $smallSpacing;
-    text-transform: uppercase;
-
-    @include media('>md') {
-        border: 0;
-        color: color(gray);
-        padding: $largeSpacing 0 $smallSpacing;
-
-        & + .nav-menu__item {
-            border-top: 1px #eee solid;
+        &:hover {
+            background-color: darken(color(gray, lightest), 1%);
+            color: color(black);
         }
     }
 }
