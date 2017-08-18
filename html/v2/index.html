@@ -282,6 +282,7 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 <pre><code>curl \
   -u example@agrilyst.com:75AFDB82 \
   -X POST \
+  -H 'Content-Type: application/json' \
   -d '{
     "sensor": {
       "name": "Greenhouse 1 Sensor",
@@ -412,12 +413,13 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 <pre><code class='bash'>curl \
   -u example@agrilyst.com:75AFDB82 \
   -X POST \
+  -H 'Content-Type: application/json' \
   -d '{
     "sensor": {
       "metric": "CO2 Percentage",
       "metric_units": "%",
       "description": "Track carbon dioxide in Greenhouse 1",
-    },
+    }
   }'
   https://api.agrilyst.com/api/v2/sensors/56789/sensor_metrics
 </code></pre>
@@ -543,6 +545,7 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 <pre><code class='bash'>curl \
   -u example@agrilyst.com:75AFDB82 \
   -X POST \
+  -H 'Content-Type: application/json' \
   -d '{
     "metrics": [
       { "id": 2,
@@ -552,7 +555,7 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
       { "id": 2,
        "value": 55,
        "time": 1471979057
-      },
+      }
     ]
   }'
   https://api.agrilyst.com/api/v2/metrics</code></pre>
@@ -646,6 +649,7 @@ Status Code(s): Timeout, Any 4xx or 5xx status code
 <pre><code class='bash'>curl \
   -u example@agrilyst.com:75AFDB82 \
   -X POST \
+  -H 'Content-Type: application/json' \
   -d '{
     "tank_reading": {
       "tank_id": 2,
