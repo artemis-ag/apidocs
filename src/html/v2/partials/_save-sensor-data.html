@@ -5,6 +5,7 @@
 <pre><code class='bash'>curl \
   -u example@agrilyst.com:75AFDB82 \
   -X POST \
+  -H 'Content-Type: application/json' \
   -d '{
     "metrics": [
       { "id": 2,
@@ -14,7 +15,7 @@
       { "id": 2,
        "value": 55,
        "time": 1471979057
-      },
+      }
     ]
   }'
   https://api.agrilyst.com/api/v2/metrics</code></pre>

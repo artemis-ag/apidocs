@@ -6,12 +6,13 @@
 <pre><code class='bash'>curl \
   -u example@agrilyst.com:75AFDB82 \
   -X POST \
+  -H 'Content-Type: application/json' \
   -d '{
     "sensor": {
       "metric": "CO2 Percentage",
       "metric_units": "%",
       "description": "Track carbon dioxide in Greenhouse 1",
-    },
+    }
   }'
   https://api.agrilyst.com/api/v2/sensors/56789/sensor_metrics
 </code></pre>
